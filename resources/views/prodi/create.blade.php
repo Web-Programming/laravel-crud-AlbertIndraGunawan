@@ -12,12 +12,16 @@
         <div class="row pt-4">
             <div class="col">
                 <h2>Form Prodi</h2>
-                <form action="{{url('prodi/store')}}" method="post">
+                @if (session()->has('info'))
+                <div class="alert alert-succes">
+                    {{ session()->get('into') }}
+                </div>
+                @endif
+                <form action="{{url('prodi/store)}}" method="post"></form>
                     @csrf
                     <div class="form-group">
                         <label for="nama">Nama</label>
-                        <input type="text" name="nama" id="nama" class="form-control"
-                        value="{{ old('nama') }}">
+                        <input type="text" name="nama" id="nama" class="form-control" value="{{ old('nama') }}">
                         @error('nama')
                             <div class="text-danger"> {{ $message }} </div>
                         @enderror
