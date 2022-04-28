@@ -57,4 +57,9 @@ class ProdiController extends Controller
         return redirect()->route('prodi.create');
     }
 
+    public function index(){
+        $prodis = prodi :: all();
+        return view('prodi.index')->with('prodis', $prodis);
+    }
+
 }
