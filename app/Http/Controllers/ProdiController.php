@@ -31,4 +31,9 @@ class ProdiController extends Controller
     function detail($id = null){
         echo $id;
     }
+
+    public function create()
+    {
+        return view('prodi.create');
+    }
 }
