@@ -45,9 +45,16 @@ class ProdiController extends Controller
         $validateData = $request->validate([
             'nama' => 'required|min:5|max:20',
         ]);
-        dump($validateData);
-        echo $validateData['nama'];
-    }
+        //dump($validateData);
+        //echo $validateData['nama'];
 
+        $prodi = new prodi(); //buat object prodi
+        $prodi->nama = $validateData['nama']//simpan nilai input  ($validateData['nama']) ke dalam property nama prodi ($prodi->nama)
+        $prodi->save();//simpan ke dalam tabel prodis
+
+        //return "Data prodi $prodi->nama berhasil disimpan ke database"; //tampilkan pesan berhasil
+        $request->session()->flash('into', "Data Prodi $prodi->nama berhasil disimpan ke database");
+        return redirect()->route('prodi.create');
+    }
 
 }
