@@ -16,9 +16,13 @@
                     <th>Nama</th><th>Aksi</th>
                 </tr>
             </thead>
+            <tbody>
+            @endforeach
+            </tbody>
         </table>
     </div>
 </div>
+@endsection
     <h1>Program Studi</h1>
     @if(count($prodi) > 0 )
         @foreach($prodi as $item)
