@@ -50,8 +50,6 @@ class ProdiController extends Controller
 
         $prodi = new prodi(); //buat object prodi
         $prodi->nama = $validateData['nama']//simpan nilai input  ($validateData['nama']) ke dalam property nama prodi ($prodi->nama)
-        
-        $prodi -> save();
 
         //return "Data prodi $prodi->nama berhasil disimpan ke database"; //tampilkan pesan berhasil
         $request->session()->flash('into', "Data Prodi $prodi->nama berhasil disimpan ke database");
@@ -61,6 +59,11 @@ class ProdiController extends Controller
     public function index(){
         $prodis = prodi :: all();
         return view('prodi.index')->with('prodis', $prodis);
+    }
+
+    public function show(Prodi $prodi)
+    {
+        return view('prodi.show), ['prodi' => $prodi]);
     }
 
 }
