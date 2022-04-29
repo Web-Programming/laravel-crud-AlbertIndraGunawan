@@ -50,7 +50,7 @@ class ProdiController extends Controller
 
         $prodi = new prodi(); //buat object prodi
         $prodi->nama = $validateData['nama']//simpan nilai input  ($validateData['nama']) ke dalam property nama prodi ($prodi->nama)
-        $prodi->save();//simpan ke dalam tabel prodis
+        $prodi->save(); //simpan ke dalam tabel prodis
 
         //return "Data prodi $prodi->nama berhasil disimpan ke database"; //tampilkan pesan berhasil
         $request->session()->flash('into', "Data Prodi $prodi->nama berhasil disimpan ke database");
