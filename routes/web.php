@@ -57,3 +57,8 @@ Route::post("prodi/store", [ProdiController::class, 'store']);
 Route::get('/prodi', [ProdiController::class,'index'])->name('prodi.index');
 
 Route::get('/prodi/{id}', [ProdiController::class,'show'])->name('prodi.show');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/prodi', [ProdiController::class, 'index'])->name('prodi.index')->middleware('auth');

@@ -66,4 +66,9 @@ class ProdiController extends Controller
         return view('prodi.show), ['prodi' => $prodi]);
     }
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
 }
